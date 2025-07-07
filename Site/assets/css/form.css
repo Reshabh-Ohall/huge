@@ -1,0 +1,78 @@
+/* === Slide-in Form Panel === */
+
+.talk-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: 100%;
+  max-width: 540px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.talk-panel.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.talk-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.talk-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.talk-panel h1,
+.talk-panel h2,
+.talk-panel h3,
+.talk-panel h4,
+.talk-panel h5
+.talk-panel h6 {
+  color: #000;
+}
+
+.talk-panel-inner .form-control-light {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.talk-panel-inner .form-control-light::placeholder {
+  color: #777;
+}
+
+.talk-panel-inner .btn-outline-light {
+  border-color: #333;
+  color: #333;
+}
+
+.talk-panel-inner .btn-outline-light:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.form-control-light:focus {
+  background-color: #f9f9f9;
+  border-color: #1B4E9B;
+  box-shadow: none;
+  outline: none;
+  color: #000;
+}
