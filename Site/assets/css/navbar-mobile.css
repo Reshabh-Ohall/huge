@@ -1,0 +1,208 @@
+/* assets/css/navbar-mobile.css */
+
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --scale-factor: 1; /* Default scale factor */
+}
+
+/* ==== Palantir-Style Mobile Navbar (Glassmorphism, Scalable Height) ==== */
+.palantir-navbar {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: calc(8px * var(--scale-factor, 1));
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08); /* Removed calc, as shadow offset/blur doesn't always scale well with calc */
+  margin: calc(8px * var(--scale-factor, 1)) auto 0 auto;
+
+  /* Scaling height of the overall navbar */
+  height: calc(50px * var(--scale-factor, 1));
+  min-height: calc(50px * var(--scale-factor, 1));
+  max-height: calc(50px * var(--scale-factor, 1));
+
+  z-index: 1000;
+  position: relative;
+  border: calc(1px * var(--scale-factor, 1)) solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 calc(12px * var(--scale-factor, 1));
+}
+
+
+/* Flex container for navbar content */
+.palantir-navbar .container-fluid {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap; /* Prevent wrapping by default on larger mobile screens */
+  justify-content: space-between; /* Pushes left, center, right items apart */
+  position: relative;
+  width: 100%;
+  /* Scaling height of the inner container */
+  height: calc(50px * var(--scale-factor, 1));
+  min-height: calc(50px * var(--scale-factor, 1));
+  max-height: calc(50px * var(--scale-factor, 1));
+  padding: 0 calc(4px * var(--scale-factor, 1));
+}
+
+/* Left side: Hamburger + Search group */
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: calc(8px * var(--scale-factor, 1));
+  margin-left: calc(8px * var(--scale-factor, 1)); /* Scaling margin */
+  /* Ensures it shrinks but doesn't disappear */
+  min-width: calc(32px * var(--scale-factor, 1) * 2); /* Approx 2 buttons */
+}
+
+/* Center: Logo + Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center !important;
+  gap: calc(8px * var(--scale-factor, 1)); /* Scaling gap */
+  font-size: calc(1rem * var(--scale-factor, 1)); /* Scaling font size */
+  font-weight: 600;
+  color: #fff !important;
+  text-decoration: none;
+  white-space: nowrap; /* Prevents text from wrapping if it gets small */
+  margin: 0;
+  height: calc(32px * var(--scale-factor, 1)); /* Scaling height */
+  
+  /* Key for centering with space-between */
+  /* flex-grow: 1; flex-shrink: 1; flex-basis: 0; would allow it to take space,
+     but margin-inline: auto is often preferred for centering in space-between layouts. */
+  margin-inline: auto; /* This centers the item within the *remaining* space after left/right take their share */
+}
+
+/* Logo image */
+.nav-logo {
+  width: calc(20px * var(--scale-factor, 1)); /* Use HTML's specified width */
+  height: calc(18px * var(--scale-factor, 1)); /* Use HTML's specified height for calc */
+  object-fit: contain;
+  display: inline-block;
+}
+
+/* Brand text */
+.nav-text {
+  font-size: calc(1rem * var(--scale-factor, 1)); /* Scaling font size */
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: calc(0.01em * var(--scale-factor, 1)); /* Scaling letter spacing */
+}
+
+/* Right: Talk to Us button (now a single button) */
+.talk-to-us-btn {
+  /* This class is now on the button itself, not a containing div like .right-side */
+  font-size: calc(12px * var(--scale-factor, 1)) !important; /* Scaling font size */
+  width: calc(75px * var(--scale-factor, 1)) !important; /* Scaling width */
+  padding: calc(8px * var(--scale-factor, 1)) 0 calc(8px * var(--scale-factor, 1)) calc(2px * var(--scale-factor, 1)) !important; /* Scaling padding */
+  margin-right: calc(6px * var(--scale-factor, 1)); /* Scaling margin */
+  min-width: calc(60px * var(--scale-factor, 1)); /* Ensure it doesn't shrink to nothing */
+}
+
+/* General button styles */
+.palantir-navbar .btn,
+.palantir-navbar .btn-sm {
+  background: transparent;
+  color: #fff;
+  border: calc(1px * var(--scale-factor, 1)) solid rgba(255,255,255,0.6); /* Scaling border thickness */
+  border-radius: calc(4px * var(--scale-factor, 1)); /* Scaling border-radius */
+  transition: background 0.2s, color 0.2s;
+}
+
+.palantir-navbar .btn {
+  font-size: calc(0.95rem * var(--scale-factor, 1)); /* Scaling font size */
+  padding: calc(6px * var(--scale-factor, 1)) calc(16px * var(--scale-factor, 1)); /* Scaling padding */
+}
+
+/* Hover and focus states for buttons */
+.palantir-navbar .btn:hover,
+.palantir-navbar .btn:focus {
+  background: rgba(255,255,255,0.1);
+  color: #1B4E9B;
+  outline: none;
+}
+
+/* Icon buttons (hamburger and search) */
+.btn-icon {
+  padding: calc(4px * var(--scale-factor, 1)) calc(8px * var(--scale-factor, 1)); /* Scaling padding */
+  font-size: calc(1.05rem * var(--scale-factor, 1)); /* Scaling font size */
+  width: calc(32px * var(--scale-factor, 1)); /* Scaling width */
+  height: calc(32px * var(--scale-factor, 1)); /* Scaling height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  border: calc(1px * var(--scale-factor, 1)) solid rgba(255,255,255,0.18); /* Scaling border thickness */
+  color: #fff;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+}
+
+.btn-icon:hover,
+.btn-icon:focus {
+  background: rgba(255,255,255,0.12);
+  color: #e0e0e0;
+  outline: none;
+}
+
+.btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.palantir-navbar,
+.palantir-navbar * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* === MEDIA QUERY FOR WRAPPING AND STACKING AT SMALLER SCREENS === */
+@media (max-width: 362px) { /* Adjust this breakpoint as needed for visual comfort */
+    .palantir-navbar {
+        height: auto; /* Allow height to expand when items wrap */
+        min-height: calc(50px * var(--scale-factor, 1)); /* Maintain a minimum height based on scale */
+        max-height: none; /* Allow unlimited vertical growth */
+        padding-top: calc(8px * var(--scale-factor, 1)); /* Add vertical padding */
+        padding-bottom: calc(8px * var(--scale-factor, 1));
+    }
+
+    .palantir-navbar .container-fluid {
+        flex-direction: column; /* Stack items vertically */
+        flex-wrap: wrap; /* In case sub-items (like buttons in left-side) also need to wrap */
+        min-height: calc(50px * var(--scale-factor, 1));
+        max-height: none;
+        justify-content: center; /* Center the entire column */
+        align-items: center; /* Center items horizontally within the column */
+        gap: calc(10px * var(--scale-factor, 1)); /* Vertical gap between stacked items */
+    }
+
+    /* Adjust behavior of the main flex items when stacked */
+    .left-side,      /* Hamburger + Search */
+    .navbar-brand,   /* Logo + Company Name */
+    .talk-to-us-btn { /* Talk to Us button */
+        width: 100%; /* Make them take full width */
+        justify-content: center; /* Center their content internally */
+        margin: calc(5px * var(--scale-factor, 1)) 0; /* Add vertical margin between them */
+    }
+
+    /* Adjustments for the talk-to-us button when stacked, if needed */
+    .talk-to-us-btn {
+        width: auto !important; /* Let content dictate width when stacked */
+        padding: calc(10px * var(--scale-factor, 1)) calc(15px * var(--scale-factor, 1)) !important; /* Adjust padding if too small */
+        margin-right: 0; /* Reset desktop right margin */
+    }
+
+    /* Order for stacking (if you want something different than source order) */
+    .navbar-brand { order: 1; } /* Logo first */
+    .left-side { order: 2; } /* Then Hamburger/Search */
+    .talk-to-us-btn { order: 3; } /* Then Talk to Us */
+}

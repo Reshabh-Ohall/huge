@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ==== Palantir-Style Navbar (Responsive) ==== */
+
+nav.palantir-navbar {
+  position: relative;
+  padding: 8px 24px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+
+  /* Default: small screens */
+  margin: 16px 12px 0 12px;
+}
+
+/* Logo text */
+nav.palantir-navbar .navbar-brand {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: white !important;
+  margin-left: 8px;
+}
+
+/* Regular buttons */
+nav.palantir-navbar .btn {
+  font-size: 0.95rem;
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: white;
+  border-radius: 4px;
+}
+
+/* Hover */
+nav.palantir-navbar .btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Icon buttons */
+nav.palantir-navbar .btn-icon {
+  padding: 8px 12px;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* Focus removal */
+nav.palantir-navbar .btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* Navbar Spacing */
+.navbar-inner {
+  width: 100%;
+}
+
+/* Something needed */
+.btn-icon {
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+
+
+/* === Responsive margin layout === */
+
+@media (min-width: 1920px) {
+  nav.palantir-navbar {
+    margin: 25px 200px 0 200px;
+  }
+}
